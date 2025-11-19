@@ -9,7 +9,7 @@ pipeline {
         stage('package The Code') {
             steps {
                 withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
-                    sh 'mvn package'
+                    sh 'mvn clean package'
                 }
             }
         }
