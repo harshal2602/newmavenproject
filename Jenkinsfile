@@ -13,10 +13,5 @@ pipeline {
                 }
             }
         }
-        stage('level-2') {
-            steps {
-                sh 'echo New York'
-            }
-        }
     }
 }
