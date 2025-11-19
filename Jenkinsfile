@@ -1,14 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('SCM Checkout') {
+        stage('git SCM Checkout') {
             steps {
                 git 'https://github.com/harshal2602/newmavenproject.git'
             }
         }
-        stage('level-1') {
+        stage('Validate The Code') {
             steps {
-                sh 'echo Pune'
+                withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
+                    sh 'mvn validate'
+                }
             }
         }
         stage('level-2') {
