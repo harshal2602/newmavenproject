@@ -8,12 +8,12 @@ pipeline {
         }
         stage('level-1') {
             steps {
-                sh echo 'Pune'
+                sh 'echo Pune'
             }
         }
         stage('level-2') {
             steps {
-                sh echo 'New York'
+                sh 'echo New York'
             }
         }
     }
