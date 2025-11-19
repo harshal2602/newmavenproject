@@ -9,7 +9,7 @@ pipeline {
         stage('compile The Code') {
             steps {
                 withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
-                    sh 'mvn Compile'
+                    sh 'mvn compile'
                 }
             }
         }
