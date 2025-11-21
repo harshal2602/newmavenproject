@@ -22,3 +22,11 @@ pipeline{
         }
     }
 }
+stage('compile the code') {
+            steps {
+                withMaven(jdk: 'JAVA_HOME', maven: 'MVN_HOME', traceability: true) {
+                    sh 'mvn compile'
+                }
+                
+            }
+        }
