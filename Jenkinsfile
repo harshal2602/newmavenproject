@@ -1,23 +1,20 @@
-pipeline {
+pipeline{
     agent any
+
     stages {
-        stage('git SCM Checkout') {
+        stage('git scm checkout') {
             steps {
-                git 'https://github.com/harshal2602/newmavenproject.git'
+               git 'https://github.com/harshal2602/newmavenproject.git'
             }
         }
-        stage('package The Code') {
+        stage('Test') {
             steps {
-                withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
-                    sh 'mvn clean package'
-                }
+                echo 'Testing...'
             }
         }
-        stage('deploy the code on tomcat server') {
+        stage('Deploy') {
             steps {
-                sshagent(['DEVCICD']) {
-                    sh 'scp -o StrictHostKeyChecking=no  webapp/target/webapp.war ec2-user@172.31.27.172:usr/share/tomcat/webapps/'
-                }
+                echo 'Deploying...'
             }
         }
     }
