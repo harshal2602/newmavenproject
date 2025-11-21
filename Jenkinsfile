@@ -32,7 +32,7 @@ pipeline {
             }
         }
 
-        stage('create the package') {
+        stage('package the code') {
             steps {
                 withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
                     sh 'mvn package'
