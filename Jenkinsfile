@@ -35,16 +35,9 @@ pipeline {
         stage('package the code') {
             steps {
                 withMaven(jdk: 'JDK_home', maven: 'MVN_HOME', traceability: true) {
-                    sh 'mvn clean package'
+                    sh 'mvn package'
                 }
             }
-        }
-    }
-
-    post {
-        success {
-            // archive all generated jars/wars so you can download from Jenkins UI
-            archiveArtifacts artifacts: '**/target/*.jar, **/target/*.war', fingerprint: true
         }
     }
 }
