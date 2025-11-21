@@ -40,4 +40,11 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            // archive all generated jars/wars so you can download from Jenkins UI
+            archiveArtifacts artifacts: '**/target/*.jar, **/target/*.war', fingerprint: true
+        }
+    }
 }
