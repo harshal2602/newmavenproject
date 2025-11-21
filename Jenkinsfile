@@ -10,7 +10,7 @@ pipeline {
 
         stage('validate the code') {
             steps {
-                withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
+                withMaven(jdk: 'JDK_home', maven: 'MVN_HOME', traceability: true) {
                     sh 'mvn validate'
                 }
             }
@@ -18,7 +18,7 @@ pipeline {
 
         stage('compile the code') {
             steps {
-                withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
+                withMaven(jdk: 'JDK_home', maven: 'MVN_HOME', traceability: true) {
                     sh 'mvn compile'
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
 
         stage('test the code') {
             steps {
-                withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
+                withMaven(jdk: 'JDK_home', maven: 'MVN_HOME', traceability: true) {
                     sh 'mvn test'
                 }
             }
@@ -34,7 +34,7 @@ pipeline {
 
         stage('package the code') {
             steps {
-                withMaven(jdk: 'JDK_home', maven: 'Maven_home', traceability: true) {
+                withMaven(jdk: 'JDK_home', maven: 'MVN_HOME', traceability: true) {
                     sh 'mvn package'
                 }
             }
