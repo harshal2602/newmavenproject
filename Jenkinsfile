@@ -7,9 +7,12 @@ pipeline{
                git 'https://github.com/harshal2602/newmavenproject.git'
             }
         }
-        stage('Test') {
+        stage('validate the code') {
             steps {
-                echo 'Testing...'
+                withMaven(jdk: 'JAVA_HOME', maven: 'MVN_HOME', traceability: true) {
+                    sh 'mvn validate'
+                }
+                
             }
         }
         stage('Deploy') {
