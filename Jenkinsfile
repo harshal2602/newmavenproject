@@ -42,7 +42,7 @@ pipeline {
         stage('deploy the code on tomcat') {
             steps {
                 sshagent(['DEVCICD']) {
-                 sh 'scp -o StrictHostKeyChecking=no  webapp/target/webapp.war ec2-user@34.202.165.116:/usr/share/tomcat/webapps'
+                 sh 'scp -o StrictHostKeyChecking=no  webapp/target/webapp.war ec2-user@34.202.165.116:/opt/tomcat/webapps'
                 }
             }
         }
