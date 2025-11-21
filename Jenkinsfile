@@ -35,7 +35,7 @@ pipeline {
         stage('package the code') {
             steps {
                 withMaven(jdk: 'JDK_home', maven: 'MVN_HOME', traceability: true) {
-                    sh 'mvn package'
+                    sh 'mvn clean package'
                 }
             }
         }
