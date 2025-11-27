@@ -35,7 +35,7 @@ pipeline {
         stage('sonar scanning') {
             steps {
                 withMaven(jdk: 'JDK_home', maven: 'MVN_HOME', traceability: true) {
-                    withSonarQubeEnv(credentialsId: 'sonar-token',installationName: 'Sonar') {
+                    withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'Sonar') {
                      sh 'mvn clean package'
                 }
                     
